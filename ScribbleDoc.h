@@ -2,6 +2,7 @@
 // ScribbleDoc.h : interface of the CScribbleDoc class
 //
 
+#include "Stroke.h"
 
 #pragma once
 
