@@ -1,3 +1,8 @@
+// 
+// Based on the Scribble Tutorial by Microsoft Corporation
+// http://msdn.microsoft.com/en-us/library/aa314520(v=vs.60).aspx
+//
+
 #ifndef __STROKE_H__
 #define __STROKE_H__
 

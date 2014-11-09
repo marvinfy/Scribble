@@ -1,3 +1,7 @@
+// 
+// Based on the Scribble Tutorial by Microsoft Corporation
+// http://msdn.microsoft.com/en-us/library/aa314520(v=vs.60).aspx
+//
 
 // Scribble.cpp : Defines the class behaviors for the application.
 //

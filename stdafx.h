@@ -1,3 +1,7 @@
+// 
+// Based on the Scribble Tutorial by Microsoft Corporation
+// http://msdn.microsoft.com/en-us/library/aa314520(v=vs.60).aspx
+//
 
 // stdafx.h : include file for standard system include files,
 // or project specific include files that are used frequently,
