@@ -6,6 +6,8 @@
 #include "stdafx.h"
 #include "Stroke.h"
 
+IMPLEMENT_SERIAL(CStroke, CObject, 1)
+
 ////////////////////////////
 // CStroke
 CStroke::CStroke()
@@ -23,4 +25,3 @@ void CStroke::Serialize( CArchive& ar )
 {
 
 }
-
