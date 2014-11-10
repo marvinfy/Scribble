@@ -23,5 +23,16 @@ CStroke::CStroke(UINT nPenWidth)
 
 void CStroke::Serialize( CArchive& ar )
 {
-
+	if( ar.IsStoring( ) )
+	{
+		ar << (WORD)m_nPenWidth;
+		m_pointArray.Serialize( ar );
+	}
+	else
+	{
+		WORD w;
+		ar >> w;
+		m_nPenWidth = w;
+		m_pointArray.Serialize( ar );
+	}
 }

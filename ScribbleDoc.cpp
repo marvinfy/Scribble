@@ -64,6 +64,7 @@ void CScribbleDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
+		m_strokeList.Serialize( ar );
 	}
 	else
 	{
@@ -153,7 +154,11 @@ void CScribbleDoc::Dump(CDumpContext& dc) const
 
 CStroke* CScribbleDoc::NewStroke(void)
 {
-	return NULL;
+	CStroke* pStrokeItem = new CStroke(m_nPenWidth);
+	m_strokeList.AddTail( pStrokeItem );
+	SetModifiedFlag( );    // Mark document as modified
+	// to confirm File Close.
+	return pStrokeItem;
 }
 
 void CScribbleDoc::InitDocument(void)
