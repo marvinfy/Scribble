@@ -101,38 +101,37 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ChildFrm.h" />
-    <ClInclude Include="MainFrm.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="Scribble.h" />
-    <ClInclude Include="ScribbleDoc.h" />
-    <ClInclude Include="ScribbleView.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Stroke.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="ChildFrm.cpp" />
-    <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="Scribble.cpp" />
-    <ClCompile Include="ScribbleDoc.cpp" />
-    <ClCompile Include="ScribbleView.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="Stroke.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Scribble.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\Scribble.rc2" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="res\Scribble.ico" />
     <Image Include="res\ScribbleDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ChildFrm.cpp" />
+    <ClCompile Include="src\MainFrm.cpp" />
+    <ClCompile Include="src\Scribble.cpp" />
+    <ClCompile Include="src\ScribbleDoc.cpp" />
+    <ClCompile Include="src\ScribbleView.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Stroke.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\ChildFrm.h" />
+    <ClInclude Include="src\MainFrm.h" />
+    <ClInclude Include="src\Resource.h" />
+    <ClInclude Include="src\Scribble.h" />
+    <ClInclude Include="src\ScribbleDoc.h" />
+    <ClInclude Include="src\ScribbleView.h" />
+    <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\Stroke.h" />
+    <ClInclude Include="src\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Scribble.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Scribble.rc2" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
