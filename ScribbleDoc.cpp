@@ -43,17 +43,19 @@ CScribbleDoc::~CScribbleDoc()
 
 BOOL CScribbleDoc::OnNewDocument()
 {
-	if (!CDocument::OnNewDocument())
+	if(!CDocument::OnNewDocument())
 		return FALSE;
-
-	// TODO: add reinitialization code here
-	// (SDI documents will reuse this document)
-
+	InitDocument();
 	return TRUE;
 }
 
-
-
+BOOL CScribbleDoc::OnOpenDocument(LPCTSTR lpszPathName)
+{
+	if( !CDocument::OnOpenDocument( lpszPathName ) )
+		return FALSE;
+	InitDocument( );
+	return TRUE;
+}
 
 // CScribbleDoc serialization
 
@@ -66,6 +68,14 @@ void CScribbleDoc::Serialize(CArchive& ar)
 	else
 	{
 		// TODO: add loading code here
+	}
+}
+
+void CScribbleDoc::DeleteContents()
+{
+	while( !m_strokeList.IsEmpty( ) )
+	{
+		delete m_strokeList.RemoveHead( );
 	}
 }
 
@@ -139,3 +149,16 @@ void CScribbleDoc::Dump(CDumpContext& dc) const
 
 
 // CScribbleDoc commands
+
+
+CStroke* CScribbleDoc::NewStroke(void)
+{
+	return NULL;
+}
+
+void CScribbleDoc::InitDocument(void)
+{
+	m_nPenWidth = 2;  // Default 2-pixel pen width
+	// Solid black pen
+	m_penCur.CreatePen( PS_SOLID, m_nPenWidth, RGB(0,0,0) );
+}

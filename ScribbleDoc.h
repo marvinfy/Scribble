@@ -17,22 +17,31 @@ protected: // create from serialization only
 	CScribbleDoc();
 	DECLARE_DYNCREATE(CScribbleDoc)
 
-// Attributes
+	// Attributes
 public:
+protected:
+	UINT m_nPenWidth;
+	CPen m_penCur;
 
-// Operations
+	// Operations
 public:
+	CTypedPtrList<CObList, CStroke*> m_strokeList;
+	CPen*   GetCurrentPen( ) { return &m_penCur; }
+	CStroke* NewStroke(void);
+	void InitDocument(void);
 
-// Overrides
+	// Overrides
 public:
 	virtual BOOL OnNewDocument();
+	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
 	virtual void Serialize(CArchive& ar);
+	virtual void DeleteContents(); // delete doc items etc
 #ifdef SHARED_HANDLERS
 	virtual void InitializeSearchContent();
 	virtual void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds);
 #endif // SHARED_HANDLERS
 
-// Implementation
+	// Implementation
 public:
 	virtual ~CScribbleDoc();
 #ifdef _DEBUG
@@ -42,7 +51,7 @@ public:
 
 protected:
 
-// Generated message map functions
+	// Generated message map functions
 protected:
 	DECLARE_MESSAGE_MAP()
 
