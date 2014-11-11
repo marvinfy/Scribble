@@ -16,6 +16,10 @@ protected: // create from serialization only
 	DECLARE_DYNCREATE(CScribbleView)
 
 // Attributes
+protected:
+	CStroke*   m_pStrokeCur;	// The stroke in progress
+	CPoint     m_ptPrev;		// The last mouse pt in the stroke
+								// in progress
 public:
 	CScribbleDoc* GetDocument() const;
 
@@ -30,6 +34,12 @@ protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
 	virtual void OnEndPrinting(CDC* pDC, CPrintInfo* pInfo);
+
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+
+
 
 // Implementation
 public:

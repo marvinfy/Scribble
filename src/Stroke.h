@@ -28,10 +28,8 @@ public:
 
 	// Operations
 public:
-	BOOL DrawStroke( CDC* pDC );
-
-public:
 	virtual void Serialize( CArchive& ar );
+	BOOL DrawStroke( CDC* pDC );
 };
 
 #endif __STROKE_H__
