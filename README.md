@@ -10,3 +10,6 @@ The original tutorial can be found [here](http://msdn.microsoft.com/en-us/librar
 
 More specifically, all steps are enumerated [here](http://msdn.microsoft.com/en-us/library/aa716528(v=vs.60).aspx).  
 
+## Screenshot
+![Scribble](https://github.com/marcusviniciusns/Scribble/blob/master/res/scribble.png)
+
