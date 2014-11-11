@@ -136,9 +136,27 @@ void CScribbleView::OnLButtonUp( UINT nFlags, CPoint point )
 
 void CScribbleView::OnMouseMove( UINT nFlags, CPoint point )
 {
-    // TODO: Add your message handler code here
-    // and/or call default
-    CView::OnMouseMove( nFlags, point );
+	// Mouse movement is interesting in the Scribble application
+	// only if the user is currently drawing a new stroke by
+	// dragging the captured mouse.
+
+	if( GetCapture( ) != this )
+		return;        // If this window (view) didn't capture the
+	// mouse, the user isn't drawing in this window.
+
+	CClientDC dc( this );
+
+	m_pStrokeCur->m_pointArray.Add(point);
+
+	// Draw a line from the previous detected point in the mouse
+	// drag to the current point.
+	CPen* pOldPen =
+		dc.SelectObject( GetDocument( )->GetCurrentPen( ) );
+	dc.MoveTo( m_ptPrev );
+	dc.LineTo( point );
+	dc.SelectObject( pOldPen );
+	m_ptPrev = point;
+	return;
 }
 
 // CScribbleView diagnostics
