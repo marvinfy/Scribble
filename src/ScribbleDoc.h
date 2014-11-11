@@ -36,6 +36,9 @@ public:
 	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
 	virtual void Serialize(CArchive& ar);
 	virtual void DeleteContents(); // delete doc items etc
+
+	void OnEditClearAll();
+	void OnEditUndo();
 #ifdef SHARED_HANDLERS
 	virtual void InitializeSearchContent();
 	virtual void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds);

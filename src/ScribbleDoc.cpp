@@ -26,6 +26,8 @@
 IMPLEMENT_DYNCREATE(CScribbleDoc, CDocument)
 
 BEGIN_MESSAGE_MAP(CScribbleDoc, CDocument)
+	ON_COMMAND(ID_EDIT_CLEAR_ALL, &CScribbleDoc::OnEditClearAll)
+	ON_COMMAND(ID_EDIT_UNDO, &CScribbleDoc::OnEditUndo)
 END_MESSAGE_MAP()
 
 
@@ -57,19 +59,28 @@ BOOL CScribbleDoc::OnOpenDocument(LPCTSTR lpszPathName)
 	return TRUE;
 }
 
+void CScribbleDoc::OnEditClearAll()
+{
+	DeleteContents( );
+	SetModifiedFlag();
+	UpdateAllViews( NULL );
+}
+
+void CScribbleDoc::OnEditUndo()
+{
+	if(!m_strokeList.IsEmpty())
+	{
+		delete m_strokeList.RemoveTail();
+		SetModifiedFlag();
+		UpdateAllViews( NULL );
+	}
+}
+
 // CScribbleDoc serialization
 
 void CScribbleDoc::Serialize(CArchive& ar)
 {
-	if (ar.IsStoring())
-	{
-		// TODO: add storing code here
-		m_strokeList.Serialize( ar );
-	}
-	else
-	{
-		// TODO: add loading code here
-	}
+	m_strokeList.Serialize( ar );
 }
 
 void CScribbleDoc::DeleteContents()
